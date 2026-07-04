@@ -40,7 +40,7 @@ st.markdown("""
         transform: scale(1.05); /* 살짝 커지는 효과 */
     }
     </style>
-""", unsafe_html=True)
+""", unsafe_allow_html=True) # 👈 이 부분을 수정했습니다!
 
 # 3. 화면 전환을 위한 세션 상태(Session State) 초기화
 if 'page' not in st.session_state:
@@ -56,7 +56,7 @@ if st.session_state.page == 'main':
     st.write("")
     
     # 메인 문구
-    st.markdown("<h1>안녕하세요😘😍💕</h1>", unsafe_html=True)
+    st.markdown("<h1>안녕하세요😘😍💕</h1>", unsafe_allow_html=True) # 👈 수정완료
     
     st.write("")
     st.write("")
@@ -66,7 +66,7 @@ if st.session_state.page == 'main':
     # "나도 인사하기" 버튼
     if st.button("나도 인사하기"):
         st.session_state.page = 'celebrate'
-        st.rerun() # 화면 새로고침하여 페이지 전환
+        st.rerun()
 
 # =================================================================
 # 4-B. 축하 화면
@@ -81,7 +81,7 @@ elif st.session_state.page == 'celebrate':
     st.write("")
     
     # 축하 문구
-    st.markdown("<h1>첫 웹페이지 제작을 축하해요!🎇</h1>", unsafe_html=True)
+    st.markdown("<h1>첫 웹페이지 제작을 축하해요!🎇</h1>", unsafe_allow_html=True) # 👈 수정완료
     
     st.write("")
     st.write("")
@@ -91,4 +91,4 @@ elif st.session_state.page == 'celebrate':
     # "돌아가기" 버튼
     if st.button("돌아가기"):
         st.session_state.page = 'main'
-        st.rerun() # 화면 새로고침하여 메인으로 이동
+        st.rerun()
